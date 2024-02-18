@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
             LayoutKotilinTheme {
                 Surface(
                     modifier = Modifier.size(width = 300.dp, height = 300.dp),
-                    shape = RoundedCornerShape(topEnd = 32.dp),
+                    shape = RoundedCornerShape(topEnd = 32.dp, bottomStart = 32.dp),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Box(
@@ -43,8 +44,11 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.align(Alignment.TopCenter).padding(10.dp)
 
                         )
-                        Button(onClick = { /*TODO*/ }) {
-                            Text(text = "botao")
+                        Button(
+                            onClick = { /*TODO*/ },
+                            modifier = Modifier.offset( x = 20.dp, y = 20.dp)
+                        ) {
+                            Text(text = "clique aqui")
                         }
                     }
                 }
