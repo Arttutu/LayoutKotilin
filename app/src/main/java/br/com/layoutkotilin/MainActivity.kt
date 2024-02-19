@@ -4,8 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -32,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.size(width = 300.dp, height = 300.dp),
                     shape = RoundedCornerShape(topEnd = 32.dp, bottomStart = 32.dp),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color.Yellow
                 ) {
                     Box(
                         modifier = Modifier.background(Color.Magenta),
@@ -41,7 +46,9 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "Fiap",
                             fontSize = 30.sp,
-                            modifier = Modifier.align(Alignment.TopCenter).padding(10.dp)
+                            modifier = Modifier
+                                .align(Alignment.TopCenter)
+                                .padding(10.dp)
 
                         )
                         Button(
@@ -51,10 +58,43 @@ class MainActivity : ComponentActivity() {
                             Text(text = "clique aqui")
                         }
                     }
+                    LayoutScreen()
                 }
             }
         }
     }
 }
+@Composable
+fun LayoutScreen() {
+    Column ( horizontalAlignment = Alignment.CenterHorizontally) {
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "botao 1")
+        }
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "botao 2")
+        }
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "botao 3")
+        }
+        Row (horizontalArrangement =  Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()){
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "botao 4")
+            }
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "botao 5")
+            }
+            Button(onClick = { /*TODO*/ }) {
+                Text(text = "botao 6")
+            }
+        }
 
+    }
+    
+}
+
+@Preview(showSystemUi = true, showBackground = true)
+@Composable
+fun LayoutScreenPreview() {
+    LayoutScreen()
+}
 
